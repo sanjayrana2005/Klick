@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { Star } from 'lucide-react'
+import { SignIn } from '@clerk/clerk-react'
 
 function Login() {
   return (
@@ -39,7 +40,7 @@ function Login() {
 
       {/* login form - right side */}
       <div className='flex-1 flex items-center justify-center p-6 sm:p-10'>
-
+        <SignIn />
       </div>
     </section>
   )
