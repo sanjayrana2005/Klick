@@ -3,13 +3,14 @@ import Sidebar from '../Components/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { dummyUserData } from '../assets/assets'
+import Loading from '../Components/Loading'
 
 function Layout() {
   const user = dummyUserData
   const [sidebarOpen, setSidebarOpen] = useState(false)
   return user ? (
     <section className='w-full flex h-screen'>
-      <Sidebar />
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
       <div className='flex-1 bg-slate-50'>
         <Outlet />
       </div>
@@ -19,7 +20,7 @@ function Layout() {
       }
     </section>
   ) : (
-    <h1>Loading</h1>
+    <Loading/>
   )
 }
 
