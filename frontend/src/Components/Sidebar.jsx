@@ -16,7 +16,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           onClick={() => navigate("/")}
           src={assets.logo}
           alt="Klcik logo"
-          className='w-26 h-20 ml-15 my-2 cursor-pointer'
+          className='w-26 h-20 ml-12 my-2 cursor-pointer'
         />
         <hr className='border-gray-200 mb-8' />
         <MenuItems setSidebarOpen={setSidebarOpen} />
