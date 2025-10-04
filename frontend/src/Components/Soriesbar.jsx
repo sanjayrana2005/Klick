@@ -3,6 +3,7 @@ import { dummyStoriesData } from '../assets/assets'
 import { Plus } from 'lucide-react'
 import moment from "moment"
 import StoryModel from './StoryModel'
+import StoryView from './StoryView'
 
 function Storiesbar() {
     const [stories, setStories] = useState([])
@@ -20,7 +21,7 @@ function Storiesbar() {
             {/* story section */}
             <div className='flex gap-4 pb-5'>
                 {/* add story card */}
-                <div onClick={()=>setShowModel(true)} className='rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-lg transition-all duration-200 border-2 border-dashed border-indigo-300 bg-gradient-to-b from-indigo-50 to-white'>
+                <div onClick={() => setShowModel(true)} className='rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-lg transition-all duration-200 border-2 border-dashed border-indigo-300 bg-gradient-to-b from-indigo-50 to-white'>
                     <div className='h-full flex flex-col items-center justify-center p-4'>
                         <div className='size-10 bg-indigo-500 rounded-full flex items-center justify-center mb-3'>
                             <Plus className='w-5 h-5 text-white' />
@@ -31,7 +32,7 @@ function Storiesbar() {
                 {/* story cards */}
                 {
                     stories.map((story, index) => {
-                        return <div key={index} className={`relative rounded-lg shadow min-w-30 max-h-40 cursor-pointer hover:shadow-lg transition-all duration-200 bg-gradient-to-b from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-800 active:scale-95`}>
+                        return <div onClick={()=>setViewStory(story)} key={index} className={`relative rounded-lg shadow min-w-30 max-h-40 cursor-pointer hover:shadow-lg transition-all duration-200 bg-gradient-to-b from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-800 active:scale-95`}>
                             <img
                                 src={story.user.profile_picture}
                                 alt="profile image"
@@ -53,15 +54,17 @@ function Storiesbar() {
                                     </div>
                                 )
                             }
-
                         </div>
                     })
                 }
             </div>
             {/* Add story model */}
             {
-                showModel && <StoryModel close={()=>setShowModel(false)} fetchStories={fetchStories}/>
+                showModel && <StoryModel close={() => setShowModel(false)} fetchStories={fetchStories} />
             }
+
+            {/* view story model */}
+            {viewStory && <StoryView  viewStory={viewStory} setViewStory={setViewStory}/>}
 
         </div>
     )
