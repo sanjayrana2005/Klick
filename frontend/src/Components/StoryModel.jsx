@@ -1,4 +1,4 @@
-import { ArrowLeft, Sparkle, TextIcon, Upload } from 'lucide-react'
+import { ArrowLeft, BadgeCheck, Sparkle, TextIcon, Upload } from 'lucide-react'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
